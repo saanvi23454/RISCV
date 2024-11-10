@@ -1,27 +1,39 @@
-<h2>About the Project</h2>
-We created a custom assembler and a custom simulator to implement a subset of RV32I (RISC-V 32-bit integer) instruction set. RISCV, an open-source, load-store type ISA, is increasingly used for open-source hardware development. We verified its correctness through an automated testing infrastructure using multiple test cases.<br><br>
+## About the Project
 
-Step 1) <br> 
-  -> Designed an Assembler which translate a .txt file code written in assembly language to a machine code(binary code) and saves it into a .txt file<br>
-  -> Used Python language to code the assembler<br>
-  -> Accounted for several possible errors that could be encountered on custom user inputs<br><br>
+This project implements a custom assembler and simulator for a subset of the RV32I (RISC-V 32-bit integer) instruction set. RISC-V, an open-source, load-store type ISA, is gaining popularity for open-source hardware development. We verified the correctness of the assembler and simulator through an automated testing infrastructure, running multiple test cases to ensure reliability.
+
+### Step 1: Assembler
+- Designed an assembler that translates a `.txt` file containing assembly language code into machine code (binary) and saves it into another `.txt` file.
+- Implemented in Python to handle various types of user input and account for common errors.
+- Incorporated error handling for common issues, such as invalid instructions and incorrect formats.
+
+### Step 2: Simulator
+- Designed a simulator that executes machine code instructions and prints the current values stored in all registers and memory locations after each execution.
+- Implemented in Python with minimal error checking, assuming syntactical errors and invalid memory/register accesses are handled by the assembler.
   
-Step 2)<br>
-  -> Designed a Simulator which executes the instructions of the input machine code, and prints the value stored in all register and memory locations after each execution.<br>
-  -> Used Python language to code the simulator<br>
-  -> Assumption : syntactical errors, accessing non-existent memory or register locations, etc., taken care of by the assembler. Hence, minimal error checking in this step.<br><br>
+### Additional Features
+- Added custom instructions beyond the original RV32I subset to improve the functionality and convenience of the assembler and simulator.
 
-Additionally, we created a few added instructions which weren't part of the original ISA subset to increase the functionality and convenience of our assembler-simulator.
+## Adding Code
 
-<h2>Adding Code</h2>
-Add the assembler code in the Simple-Assembler directory. Add the commands to execute the assembler in Simple-Assembler/run.<br>
-Add the simulator code in the SimpleSimulator directory. Add the commands to execute the assembler in SimpleSimulator/run.<br>
-Make sure that both the assembler and the simulator read from stdin.<br>
-Make sure that both the assembler and the simulator write to stdout.<br>
-<h2>How to Evaluate</h2>
-Go to the automatedTesting directory and execute the run file with appropiate options passed as arguments.<br>
-Options available for automated testing:<br>
---verbose: Prints verbose output<br>
---no-asm: Does not evaluate the assembler<br>
---no-sim: Does not evaluate the simulator<br>
+1. **Assembler Code**:
+   - Place the assembler code in the `Simple-Assembler` directory.
+   - Add the commands to execute the assembler in `Simple-Assembler/run`.
 
+2. **Simulator Code**:
+   - Place the simulator code in the `SimpleSimulator` directory.
+   - Add the commands to execute the simulator in `SimpleSimulator/run`.
+
+Ensure that both the assembler and simulator:
+- Read from `stdin`.
+- Write to `stdout`.
+
+## How to Evaluate
+
+1. Navigate to the `automatedTesting` directory.
+2. Run the `run` file with appropriate options passed as arguments.
+
+### Available Options:
+- `--verbose`: Prints detailed output for debugging.
+- `--no-asm`: Skips the assembler evaluation.
+- `--no-sim`: Skips the simulator evaluation.
